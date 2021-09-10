@@ -1,13 +1,12 @@
 from flask import Flask
-from blueprints.routes import api
-from flask_migrate import Migrate
+from blueprints.clientsRoutes import api
 from database import db, migrate
-from flask_sqlalchemy import SQLAlchemy
+from config import config
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:drb49f@localhost/prova'
+app.config['SQLALCHEMY_DATABASE_URI'] = config["DB_CONNECTION"]+'://'+config["DB_USERNAME"] + \
+    ':'+config["DB_PASSWORD"]+'@'+config["DB_HOST"]+'/'+config["DB_DATABASE"]
 db.init_app(app)
 migrate.init_app(app, db)
 app.register_blueprint(api)
-
