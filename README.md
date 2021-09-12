@@ -36,22 +36,27 @@ Hyago Assis de Novais Oliveira
 Utilização e instalação dos requisitos para funcionamento da api de forma local.
 
   - Primeiro copie o arquivo config_example.py e altera o nome para config.py e coloque as informações do banco de dados referentes.
+  
+  - Caso não tenha instalado, instale o pacote libpq-dev utilizado o gerenciador de seu sistema operacional, exemplo em ubuntu:
+```sh
+  sudo apt-get install libpq-dev 
+```
 
   - Em seguida rode o seguinte comando para instalar as dependências na pasta do projeto.  
 ```sh
   pip install -r requirements.txt
 ```
-  - Após isso rode o comando para rodar os upgrade da migrations e inserir as tabelas no banco de dados
+  - Após isso rode o comando para rodar o upgrade da migrations e inserir as tabelas no banco de dados
 ```sh
-  flask db upgrade
+  python3 -B -m flask db upgrade
 ```
   - Caso queira excluir as tabelas rode o comando
 ```sh
-  flask db downgrade
+  python3 -B -m flask db downgrade
 ```
   - Por fim, através do comando baixo, rode o servidor local para uso da api.
 ```sh
-  flask run
+  python3 -B -m flask run
 ```
 
 

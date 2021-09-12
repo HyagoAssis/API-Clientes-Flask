@@ -9,3 +9,4 @@ class Clients(db.Model):
 
     def to_json(self):
         return {"id": self.id, "name": self.name, "companyName": self.companyName, "cnpj": self.cnpj, "inclusionData": self.inclusionData.strftime('%d/%m/%Y')}
+    

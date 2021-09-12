@@ -1,16 +1,19 @@
-from flask import Response, request,Blueprint
+from flask import Response, request, Blueprint
 import json
 
 from models.Client import Clients
 from database import db
 
 api = Blueprint('api', __name__)
+
+
 @api.route("/clients", methods=["GET"])
 def selectAllClients():
     clientsList = Clients.query.all()
     clientsJson = [client.to_json() for client in clientsList]
 
     return generateResponse(200, clientsJson, "ok", "null")
+
 
 @api.route("/client/create", methods=["POST"])
 def createClient():
@@ -28,7 +31,7 @@ def createClient():
         return generateResponse(400, {}, "Erro ao cadastrar", "Error")
 
 
-@api.route("/client/update/e<id>", methods=["PUT"])
+@api.route("/client/update/<id>", methods=["PUT"])
 def updateClient(id):
     client = Clients.query.filter_by(id=id).first()
     body = request.get_json()
