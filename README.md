@@ -25,7 +25,7 @@ Hyago Assis de Novais Oliveira
 
 ### PUT
   - Edita as informações de um cliente
-  - URL: host/client/edit/id
+  - URL: host/client/update/id
 
 ### DELETE
   - Deleta um cliente
