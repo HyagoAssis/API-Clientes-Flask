@@ -1,7 +1,5 @@
 # Prova Python
 
-Projeto desenvolvido como prova no processo seletivo para Desenvolvedor Python na Smart NX.
-
 O Projeto trata-se de criar um API REST com um CRUD Clients.
 
 Tecnologias Utilizadas:
